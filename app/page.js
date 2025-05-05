@@ -1,4 +1,5 @@
 // pages/index.js
+"use client"
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -24,7 +25,7 @@ const TranslationAnimation = () => {
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const toggleDemoModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -43,15 +44,15 @@ export default function Home() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <div className="h-12 w-12 relative">
-                  <Image 
-                    src="/microphone-logo.png" 
-                    alt="VoiceBridge Logo" 
-                    layout="fill"
+                <div className=" relative">
+                  <Image
+                    src="/Logo.png"
+                    alt="VoiceBridge Logo"
+                    height={150}
+                    width={150}
                     objectFit="contain"
                   />
                 </div>
-                <span className="ml-2 text-2xl font-bold text-gray-900">VoiceBridge</span>
               </div>
             </div>
             <div className="flex items-center">
@@ -77,7 +78,7 @@ export default function Home() {
             Real-time translation, transcription, and sign language avatars powered by AWS AI.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <button 
+            <button
               onClick={toggleDemoModal}
               className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10"
             >
@@ -174,7 +175,7 @@ export default function Home() {
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 flex-col sm:flex-row gap-4">
             <div className="inline-flex rounded-md shadow">
-              <button 
+              <button
                 onClick={toggleDemoModal}
                 className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
               >
@@ -316,15 +317,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center">
-                <div className="h-10 w-10 relative">
-                  <Image 
-                    src="/microphone-logo.png" 
-                    alt="VoiceBridge Logo" 
+                <div className="h-20 w-20 relative">
+                  <Image
+                    src="/NoBgLogo.png"
+                    alt="VoiceBridge Logo"
                     layout="fill"
                     objectFit="contain"
                   />
                 </div>
-                <span className="ml-2 text-xl font-bold text-white">VoiceBridge</span>
               </div>
               <p className="mt-2 text-base text-gray-300">
                 AI-Powered Access. For All.
@@ -333,7 +333,7 @@ export default function Home() {
                 Built for AWS Breaking Barriers Challenge 2025
               </p>
             </div>
-            
+
             <div>
               <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Links</h3>
               <ul className="mt-4 space-y-4">
@@ -351,15 +351,15 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Partners</h3>
               <div className="mt-6 grid grid-cols-2 gap-8">
                 <div className="col-span-1 flex justify-center md:justify-start">
                   <div className="h-12 w-24 relative">
-                    <Image 
-                      src="/aws-logo.png" 
-                      alt="AWS Partner" 
+                    <Image
+                      src="/aws-logo.png"
+                      alt="AWS Partner"
                       layout="fill"
                       objectFit="contain"
                     />
@@ -367,9 +367,9 @@ export default function Home() {
                 </div>
                 <div className="col-span-1 flex justify-center md:justify-start">
                   <div className="h-12 w-24 relative">
-                    <Image 
-                      src="/open-source-logo.png" 
-                      alt="Open Source" 
+                    <Image
+                      src="/open-source-logo.png"
+                      alt="Open Source"
                       layout="fill"
                       objectFit="contain"
                     />
@@ -378,7 +378,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
             <div className="flex space-x-6 md:order-2">
               <a href="#" className="text-gray-400 hover:text-gray-300">
@@ -403,54 +403,57 @@ export default function Home() {
 
       {/* Demo Modal */}
       {isModalOpen && (
-        <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-            </div>
 
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+<div className="fixed z-50 inset-0 overflow-y-auto"> <div className="flex items-center justify-center min-h-screen px-4 py-12 sm:p-0 text-center"> {/* Background overlay */} <div className="fixed inset-0 bg-gray-800 bg-opacity-70 transition-opacity" aria-hidden="true"></div>
 
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                      Try VoiceBridge Demo
-                    </h3>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        Experience real-time translation powered by AWS AI.
-                      </p>
-                      
-                      <div className="mt-4 bg-gray-50 p-4 rounded-lg">
-                        <div className="flex flex-col items-center">
-                          <div className="w-full max-w-md">
-                            <div className="bg-indigo-100 rounded-t-lg p-3 text-center">
-                              <p className="font-medium text-indigo-800">Select your native language</p>
-                            </div>
-                            <div className="p-4 border border-gray-200 rounded-b-lg">
-                              <select className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                                <option>English</option>
-                                <option>Spanish</option>
-                                <option>French</option>
-                                <option>German</option>
-                                <option>Mandarin</option>
-                                <option>Japanese</option>
-                                <option>Arabic</option>
-                                <option>Russian</option>
-                                <option>ASL (American Sign Language)</option>
-                              </select>
-                              
-                              <div className="mt-4">
-                                <p className="text-sm text-gray-600 mb-2">Say something or click to simulate:</p>
-                                <button className="w-full bg-indigo-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">
+  {/* Modal container */}
+  <div className="relative inline-block align-middle bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full z-50">
+    {/* Close button */}
+    <button
+      onClick={() => setIsModalOpen(false)}
+      className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
 
-                                </button>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
+    {/* Modal content */}
+    <div className="px-6 py-5 sm:p-6">
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+        Try VoiceBridge Demo
+      </h3>
+      <p className="text-sm text-gray-500 mb-4">
+        Experience real-time translation powered by AWS AI.
+      </p>
 
-      )}
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <div className="bg-indigo-100 rounded-t-lg p-3 text-center">
+          <p className="font-medium text-indigo-800">Select your native language</p>
+        </div>
+        <div className="p-4 border border-gray-200 rounded-b-lg">
+          <select className="block w-full pl-3 pr-10 py-2 mb-4 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Mandarin</option>
+            <option>Japanese</option>
+            <option>Arabic</option>
+            <option>Russian</option>
+            <option>ASL (American Sign Language)</option>
+          </select>
+
+          <p className="text-sm text-gray-600 mb-2">Say something or click to simulate:</p>
+          <button className="w-full bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded-md text-white font-medium text-sm">
+            Simulate Translation
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> )}
+</div>
+  )}
+     
